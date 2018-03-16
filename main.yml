@@ -1,0 +1,11 @@
+---
+- name: Download files from list of URLs from url_list.yml
+  hosts: localhost
+  tasks:
+    - name: Fetch files from urls from url_list.yml
+      get_url:
+        url: "{{ item }}"
+        dest: "downloads" 
+      with_lines: cat url_list.yml
+      
+
